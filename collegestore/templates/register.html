@@ -1,0 +1,95 @@
+
+<pre>
+
+
+
+</pre>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #00ff00; /* Green background color */
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+      button {
+      width: 100%;
+      padding: 10px 0;
+      margin: 10px auto;
+      border-radius: 5px;
+      border: none;
+      background: #1c87c9;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      }
+      button:hover {
+      background: #26a9e0;
+      }
+
+
+    </style>
+</head>
+<body>
+    <form action="register" method="post">
+        {% csrf_token %}
+        <h1>REGISTRATION</h1>
+        <br>
+        <label for="username">USERNAME:</label>
+        <input type="text" id="username" name="username" placeholder="Username"><br><br>
+        <label for="f_name">FIRSTNAME:</label>
+        <input type="text" id="f_name" name="f_name" placeholder="Enter your firstname"><br><br>
+        <label for="l_name">LASTNAME:</label>
+        <input type="text" id="l_name" name="l_name" placeholder="Enter your lastname"><br><br>
+        <label for="email">EMAIL:</label>
+        <input type="email" id="email" name="email" placeholder="Enter email"><br><br>
+        <label for="p1">PASSWORD:</label>
+        <input type="password" id="p1" name="p1"><br><br>
+        <label for="p2">CONFIRM PASSWORD:</label>
+        <input type="password" id="p2" name="p2"><br><br>
+        <button type="submit">SUBMIT</button>
+        {% for msg in messages %}
+        {{msg}}
+        {% endfor %}
+    </form>
+</body>
+</html>
+

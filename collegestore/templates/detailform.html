@@ -1,0 +1,172 @@
+
+<pre>
+
+
+
+</pre>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #00ff00; /* Green background color */
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+      button {
+       background-color: #007bff;
+       color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+
+      }
+      button:hover {
+      background: #26a9e0;
+      }
+
+
+    </style>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h1>ORDER FORM</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male"> Male
+        <input type="radio" id="female" name="gender" value="Female"> Female<br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea><br>
+
+        <label for="department">Department:</label>
+        <select id="department" onchange="populateCourses()">
+        <option value=""> Departments</option>
+        <option value="dept1">BIO SCIENCE</option>
+        <option value="dept2">COMMERCE</option>
+        <option value="dept3">COMPUTER SCIENCE</option>
+            <option value="dept4">HUMANITIES</option>
+             <option value="dept5">VHSC</option>
+        <!-- Add more department options here -->
+        </select><br>
+
+        <label for="courses">Select Course:</label>
+        <select id="courses">
+        <option value="">Select a Course</option>
+        </select><br>
+
+        <label for="purpose">Purpose:</label>
+        <select id="purpose" name="purpose" required>
+            <option value="ForEnquiry">For Enquiry</option>
+            <option value="PlaceOrder">Place Order</option>
+            <option value="Return">Return</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+
+        <label>Materials Provide:</label><br>
+        <input type="checkbox" id="notebook" name="materials[]" value="Notebook"> Notebook
+        <input type="checkbox" id="pen" name="materials[]" value="Pen"> Pen
+        <input type="checkbox" id="examPapers" name="materials[]" value="Exam Papers"> Exam Papers
+        <!-- Add more checkboxes as needed --><br><br>
+
+        <input type="submit" value="Submit">
+        <a href= "{% url 'logout' %}"><button type="button" class="btn btn-success">LOGOUT</button></a><br><br>
+        <a href= '/'>GO HOME</a>
+
+{% for msg in messages %}
+    {{ msg }}
+{% endfor %}
+     
+    </form>
+
+</body>
+</html>
+
+<script>
+        function populateCourses() {
+            var departmentSelect = document.getElementById("department");
+            var coursesSelect = document.getElementById("courses");
+            var selectedDepartment = departmentSelect.value;
+
+            // You can fetch course data for the selected department from a database or another data source here
+            // For this example, we'll use a simple object to simulate course data
+
+            var courseData = {
+                dept1: ["BSC ZOOLOGY", "BSC PHYSICS", "BSC BOTONY"],
+                dept2: ["BBA", "BCOM","BA ECONOMICS"],
+                dept3: ["BSC CS", "BCA","BSC CHEMISTRY" ],
+                dept4:["BA HISTORY","BA SOCIOLOGY"],
+                dept5:["EE technology","AUTOMOBILE technology"],
+            };
+
+            // Clear the current options in the courses dropdown
+            coursesSelect.innerHTML = '<option value="">Select a Course</option>';
+
+            // Populate the courses dropdown based on the selected department
+            if (selectedDepartment in courseData) {
+                var courses = courseData[selectedDepartment];
+                for (var i = 0; i < courses.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = courses[i];
+                    option.text = courses[i];
+                    coursesSelect.appendChild(option);
+                }
+            }
+        }
+    </script>
+
+
+

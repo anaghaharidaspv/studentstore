@@ -1,0 +1,32 @@
+
+<style>
+    form{
+             clear:both;
+             max-width:81%;
+              margin:0 auto;
+               display:block;
+              font-family:Comic Sans Ms;
+              text-align:center;
+        }
+
+</style>
+</head>
+<body>
+<br>
+<br>
+<br>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+            <!-- Form -->
+            <form>
+                {% csrf_token %}
+             <h1>Hello {{ user.username }}</h1>
+             <h5>click here to GO</h5>
+                <a class="btn btn-danger" aria-current="page" href="{% url 'detailform' %}">Login</a>
+            <!-- Form end -->
+                </form>
+        </div>
+    </div>
+</div>
+

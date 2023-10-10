@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science Department Courses</title>
+    <style>
+    body {
+            background-color: yellow; /* Set background color to blue */
+            text-align: center; /* Center-align text within the body */
+        }
+
+        #courseDetails {
+            margin: 0 auto; /* Center the course details div horizontally */
+            max-width: 400px; /* Limit the maximum width of the course details div */
+            padding: 20px; /* Add some padding for spacing */
+
+            border-radius: 5px; /* Add rounded corners to the div */
+        }
+        </style>
+    <script>
+        function displayCourseDetails() {
+            var courseSelect = document.getElementById("courseSelect");
+            var courseDetails = document.getElementById("courseDetails");
+
+            // Get the selected course value
+            var selectedCourse = courseSelect.value;
+
+            // Define course details for each course
+            var courseInfo = {
+               "ba history": "BA History - A Bachelor of Arts (BA) in History is an undergraduate degree program that focuses on the study of the past. Students in this program explore various historical events, societies, and cultures to gain a deeper understanding of how the world has evolved over time. They analyze primary and secondary sources, conduct research, and develop critical thinking and analytical skills. BA in History programs often cover a wide range of historical periods and topics, allowing students to specialize in areas that interest them the most, such as ancient history, modern history, or specific regions.",
+                "ba sociology": "BA Sociology  - A Bachelor of Arts (BA) in History is an undergraduate degree program that focuses on the study of the past. Students in this program explore various historical events, societies, and cultures to gain a deeper understanding of how the world has evolved over time. They analyze primary and secondary sources, conduct research, and develop critical thinking and analytical skills. BA in History programs often cover a wide range of historical periods and topics, allowing students to specialize in areas that interest them the most, such as ancient history, modern history, or specific regions.",
+            };
+
+            // Display the selected course details,
+            courseDetails.textContent = courseInfo[selectedCourse];
+        }
+    </script>
+</head>
+<body>
+    <h1>Humanities Department Course</h1>
+    <form>
+        <label for="courseSelect">Select a Course:</label>
+        <select id="courseSelect" onchange="displayCourseDetails()">
+            <option value=""> courses</option>
+            <option value="ba history">BA History</option>
+            <option value="ba sociology">BA Socioloy</option>
+
+        </select>
+
+
+    </form>
+    <div id="courseDetails">
+        <!-- Course details will be displayed here -->
+    </div>
+ <br><br>
+         <a href= '/'>GO HOME</a>
+</body>
+</html>

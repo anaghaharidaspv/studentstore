@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Computer Science Department Courses</title>
+    <style>
+    body {
+            background-color: yellow; /* Set background color to blue */
+            text-align: center; /* Center-align text within the body */
+        }
+
+        #courseDetails {
+            margin: 0 auto; /* Center the course details div horizontally */
+            max-width: 400px; /* Limit the maximum width of the course details div */
+            padding: 20px; /* Add some padding for spacing */
+
+            border-radius: 5px; /* Add rounded corners to the div */
+        }
+        </style>
+    <script>
+        function displayCourseDetails() {
+            var courseSelect = document.getElementById("courseSelect");
+            var courseDetails = document.getElementById("courseDetails");
+
+            // Get the selected course value
+            var selectedCourse = courseSelect.value;
+
+            // Define course details for each course
+            var courseInfo = {
+                "BSC CS": "BSC CS - This program focuses on the study of physical phenomena, laws of motion, and the behavior of matter and energy.",
+                "BCA": "BCA - This program covers the study of plant biology, including plant structure, growth, and ecology.",
+                "BSC CHEMISTRY": "BSC CHEMISTRY - This program explores the study of animals, their behavior, classification, and physiology."
+            };
+
+            // Display the selected course details,
+            courseDetails.textContent = courseInfo[selectedCourse];
+        }
+    </script>
+</head>
+<body>
+    <h1> computer Science Department Course</h1>
+    <form>
+        <label for="courseSelect">Select a Course:</label>
+        <select id="courseSelect" onchange="displayCourseDetails()">
+            <option value=""> courses</option>
+            <option value="BSC CS">BSC CS</option>
+            <option value="BCA">BCA</option>
+            <option value="BSC CHEMISTRY">BSC CHEMISTRY</option>
+        </select>
+
+
+    </form>
+    <div id="courseDetails">
+        <!-- Course details will be displayed here -->
+    </div>
+<br><br>
+         <a href= '/'>GO HOME</a>
+</body>
+</html>

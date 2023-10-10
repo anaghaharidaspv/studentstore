@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commerce Department Courses</title>
+     <style>
+        body {
+            background-color: yellow; /* Set background color to blue */
+            text-align: center; /* Center-align text within the body */
+        }
+
+        #courseDetails {
+            margin: 0 auto; /* Center the course details div horizontally */
+            max-width: 400px; /* Limit the maximum width of the course details div */
+            padding: 20px; /* Add some padding for spacing */
+
+            border-radius: 5px; /* Add rounded corners to the div */
+        }
+        </style>
+    <script>
+        function displayCourseDetails() {
+            var courseSelect = document.getElementById("courseSelect");
+            var courseDetails = document.getElementById("courseDetails");
+
+            // Get the selected course value
+            var selectedCourse = courseSelect.value;
+
+            // Define course details for each course
+            var courseInfo = {
+                "bba": "BBA - A Bachelor of Business Administration (BBA) is an undergraduate degree program that focuses on various aspects of business management and administration. This course is designed to provide students with a strong foundation in business principles and practices, preparing them for careers in the corporate world or for further education in business-related fields",
+                "bcom": "BCOM  - A Bachelor of Commerce (BCom) is a popular undergraduate degree program offered by universities and colleges around the world. It is a versatile and widely recognized degree that focuses on various aspects of business, finance, and commerce. ",
+                "ba economics": "BA Economics - A Bachelor of Arts (BA) in Economics is an undergraduate degree program that focuses on the study of economics, which is the social science that examines how individuals, businesses, and governments make choices to allocate resources. "
+            };
+
+            // Display the selected course details
+            courseDetails.textContent = courseInfo[selectedCourse];
+        }
+    </script>
+</head>
+<body>
+    <h1>Commerce Department Course</h1>
+    <form>
+        <label for="courseSelect">Select a Course:</label>
+        <select id="courseSelect" onchange="displayCourseDetails()">
+            <option value=""> courses</option>
+            <option value="bba">BBA</option>
+            <option value="bcom">BCOM</option>
+            <option value="ba economics">BA Economics</option>
+        </select>
+
+
+    </form>
+    <div id="courseDetails">
+        <!-- Course details will be displayed here -->
+    </div>
+ <br><br>
+         <a href= '/'>GO HOME</a>
+</body>
+</html>
